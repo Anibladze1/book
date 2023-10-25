@@ -8,6 +8,7 @@
 # Run Locally Without Docker
 
 ## For this, you should have installed PGadmin locally and running, 
+### Install Requirements : pip install -r requirements.txt
 ### then simply create .env file using sample.env,
 ### create migrations using python manage.py makemigrations and 
 ### python manage.py migrate then just python manage.py runserver
