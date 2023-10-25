@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .book-cover {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+        .btn-danger {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h1 class="card-title mb-4">{{ book.title }}</h1>
+                        <div class="card-text mb-4">
+                            <p><strong>Author/s:</strong> {{ book.author }}</p>
+                            <p><strong>Publication date:</strong> {{ book.publication_date }}</p>
+                            <p><strong>ISBN number:</strong> {{ book.isbn_number }}</p>
+                            <p><strong>Pages:</strong> {{ book.number_of_pages }}</p>
+                            <p><strong>Language:</strong> {{ book.get_publication_language_display }}</p>
+                            <p><strong>Cover:</strong></p>
+                            <img src="{{ book.cover_link }}" alt="{{ book.title }} cover" class="book-cover">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a href="{% url 'books-update' pk=book.id %}" class="btn btn-custom btn-primary">Edit</a>
+                                <a href="{% url 'books-delete' pk=book.id %}" class="btn btn-custom btn-danger">Delete</a>
+                            </div>
+                            <a href='{% url "home" %}' class="btn btn-custom btn-secondary">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
